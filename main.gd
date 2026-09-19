@@ -6,6 +6,8 @@ extends Node
 @onready var checkpoint = $Checkpoint
 @onready var ui_label = $Player/StatusLabel
 @onready var sfx_player = $SFXPlayer
+@onready var camera = $Player/Camera2D
+@onready var bottom_label = $Label
 
 var start_pos: Vector2
 var time_alive = 0.0
@@ -17,6 +19,8 @@ var has_reached_checkpoint = false
 var current_msg = ""
 var fade_tween: Tween
 
+var flip_timer = 0.0
+
 func _ready():
 	start_pos = player.global_position
 	prev_pos = player.global_position
@@ -25,6 +29,8 @@ func _ready():
 	finish_line.body_entered.connect(_on_finish_line_entered)
 	finish_line.body_exited.connect(_on_finish_line_exited)
 	checkpoint.body_entered.connect(_on_checkpoint_entered)
+
+	bottom_label.text = "Return to this platform! Start to the right! ->"
 
 func _process(delta):
 	if has_left_start:
@@ -39,6 +45,12 @@ func _process(delta):
 	
 	prev_pos = player.global_position
 	update_ui()
+
+	# Random camera flip every 10 seconds
+	flip_timer += delta
+	if flip_timer >= 10.0:
+		flip_timer = 0.0
+		camera.rotation_degrees = 180.0 if randf() > 0.5 else 0.0
 
 func _on_left_area(body):
 	if body == player:

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://do2448lo2uhuf" path="res://main.gd" id="1_1bvp3"]
 [ext_resource type="Script" uid="uid://bmvgioh3r4w8o" path="res://player.gd" id="1_h2yge"]
-[ext_resource type="Texture2D" uid="uid://bs77awpb25eqi" path="res://icon.svg" id="2_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://ixuvn52r4tnc" path="res://Screenshot 2026-09-18 182329.png" id="3_5vw27"]
 [ext_resource type="Texture2D" uid="uid://cexbdrq3rwamw" path="res://Screenshot 2026-09-17 183617.png" id="3_lquwl"]
 [ext_resource type="AudioStream" uid="uid://2qv1y35ve5ia" path="res://death-bong.mp3" id="5_5vw27"]
 [ext_resource type="AudioStream" uid="uid://d0hi7dcjsnr5q" path="res://lego-yoda-death-sound-effect.mp3" id="6_kek77"]
@@ -762,9 +762,9 @@ script = ExtResource("1_1bvp3")
 script = ExtResource("1_h2yge")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=2046518045]
-position = Vector2(298.5, 387.75)
-scale = Vector2(0.49218753, 0.4882812)
-texture = ExtResource("2_1bvp3")
+position = Vector2(298.5, 387.99997)
+scale = Vector2(0.07283235, 0.07167632)
+texture = ExtResource("3_5vw27")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=147759370]
 position = Vector2(298.625, 387.875)
@@ -805,3 +805,10 @@ shape = SubResource("RectangleShape2D_nfl04")
 
 [node name="SFXPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1802364185]
 stream = SubResource("AudioStreamRandomizer_ubmik")
+
+[node name="Label" type="Label" parent="." unique_id=1732951736]
+offset_left = 110.0
+offset_top = 538.0
+offset_right = 510.0
+offset_bottom = 608.0
+horizontal_alignment = 1
