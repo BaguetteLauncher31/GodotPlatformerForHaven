@@ -5,6 +5,7 @@ extends Node
 @onready var finish_line = $FinishLine
 @onready var checkpoint = $Checkpoint
 @onready var ui_label = $Player/StatusLabel
+@onready var sfx_player = $SFXPlayer
 
 var start_pos: Vector2
 var time_alive = 0.0
@@ -67,6 +68,7 @@ func respawn(reason: String):
 	has_left_start = false
 	has_reached_checkpoint = false
 	
+	sfx_player.play()
 	show_message_and_fade(reason)
 
 func update_ui():

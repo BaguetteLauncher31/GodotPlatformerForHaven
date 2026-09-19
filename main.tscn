@@ -4,6 +4,10 @@
 [ext_resource type="Script" uid="uid://bmvgioh3r4w8o" path="res://player.gd" id="1_h2yge"]
 [ext_resource type="Texture2D" uid="uid://bs77awpb25eqi" path="res://icon.svg" id="2_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://cexbdrq3rwamw" path="res://Screenshot 2026-09-17 183617.png" id="3_lquwl"]
+[ext_resource type="AudioStream" uid="uid://2qv1y35ve5ia" path="res://death-bong.mp3" id="5_5vw27"]
+[ext_resource type="AudioStream" uid="uid://d0hi7dcjsnr5q" path="res://lego-yoda-death-sound-effect.mp3" id="6_kek77"]
+[ext_resource type="AudioStream" uid="uid://b8kayvq13dtss" path="res://metal-gear-solid-snake-death-scream-sound-effect_fR1Ryqk.mp3" id="7_4c57u"]
+[ext_resource type="AudioStream" uid="uid://bc0capbmhjdc0" path="res://villager.mp3" id="8_efxa6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ubmik"]
 size = Vector2(62.75, 62.25)
@@ -744,6 +748,13 @@ size = Vector2(255, 19)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nfl04"]
 size = Vector2(62.5, 20)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ubmik"]
+streams_count = 4
+stream_0/stream = ExtResource("5_5vw27")
+stream_1/stream = ExtResource("6_kek77")
+stream_2/stream = ExtResource("7_4c57u")
+stream_3/stream = ExtResource("8_efxa6")
+
 [node name="Node" type="Node" unique_id=1649410056]
 script = ExtResource("1_1bvp3")
 
@@ -791,3 +802,6 @@ shape = SubResource("RectangleShape2D_6t334")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint" unique_id=1324262675]
 position = Vector2(32.25, 386)
 shape = SubResource("RectangleShape2D_nfl04")
+
+[node name="SFXPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1802364185]
+stream = SubResource("AudioStreamRandomizer_ubmik")
